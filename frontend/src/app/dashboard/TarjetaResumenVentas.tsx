@@ -1,4 +1,4 @@
-import { useGetDashboardMetricsQuery } from "@/estado/api";
+import { useGetMetricosDashboardQuery } from "@/estado/api";
 import { TrendingUp } from "lucide-react";
 import React, { useState } from "react";
 import {
@@ -13,7 +13,7 @@ import {
 import CargadorSpinner from "../(componentes)/CargadorSpinner";
 
 const TarjetaResumenVentas = () => {
-  const { data, isLoading, isError } = useGetDashboardMetricsQuery();
+  const { data, isLoading, isError } = useGetMetricosDashboardQuery();
   const datosVentas = data?.resumenVentas || [];
 
   const [periodicidad, setPeriodicidad] = useState("semanal");
@@ -38,20 +38,20 @@ const TarjetaResumenVentas = () => {
       })
     : "N/A";
 
-  //   if (isError) {
-  //     return (
-  //       <div className="row-span-3 xl:row-span-6 bg-white shadow-md rounded-2xl flex flex-col justify-between">
-  //         <div className="text-center text-red-500">
-  //           <h2 className="text-lg font-semibold mb-2 px-7 pt-5 text-white">
-  //             Resumen de Ventas
-  //           </h2>
-  //           Falló la obtención de las datos de la API.
-  //           <br />
-  //           Asegúrate de que el backend este levantado.
-  //         </div>
-  //       </div>
-  //     );
-  //   }
+  if (isError) {
+    return (
+      <div className="row-span-3 xl:row-span-6 bg-white shadow-md rounded-2xl flex flex-col justify-between">
+        <div className="text-center text-red-500">
+          <h2 className="text-lg font-semibold mb-2 px-7 pt-5 text-white">
+            Resumen de Ventas
+          </h2>
+          Falló la obtención de las datos de la API.
+          <br />
+          Asegúrate de que el backend este levantado.
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="row-span-3 xl:row-span-6 bg-white shadow-md rounded-2xl flex flex-col justify-between">
@@ -105,7 +105,7 @@ const TarjetaResumenVentas = () => {
               >
                 <CartesianGrid strokeDasharray="" vertical={false} />
                 <XAxis
-                  dataKey="date"
+                  dataKey="fecha"
                   tickFormatter={(value) => {
                     const fecha = new Date(value);
                     return `${fecha.getMonth() + 1}/${fecha.getDate()}`;
@@ -133,7 +133,7 @@ const TarjetaResumenVentas = () => {
                   }}
                 />
                 <Bar
-                  dataKey="totalValue"
+                  dataKey="valorTotal"
                   fill="#3182ce"
                   barSize={10}
                   radius={[10, 10, 0, 0]}

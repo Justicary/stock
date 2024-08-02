@@ -2,12 +2,12 @@ import React from "react";
 import Image from "next/image";
 import { ShoppingBag } from "lucide-react";
 import Calificacion from "../(componentes)/Calificacion";
-import { useGetDashboardMetricsQuery } from "@/estado/api";
+import { useGetMetricosDashboardQuery } from "@/estado/api";
 import CargadorSpinner from "../(componentes)/CargadorSpinner";
 
 const TarjetaProductosPopulares = () => {
   // Obtiene los datos del backend.
-  const { data: dashboardMetrics, isLoading } = useGetDashboardMetricsQuery();
+  const { data: metricos, isLoading } = useGetMetricosDashboardQuery();
 
   return (
     <div className="row-span-3 xl:row-span-6 bg-white shadow-md rounded-2xl pb-16">
@@ -20,7 +20,7 @@ const TarjetaProductosPopulares = () => {
           </h3>
           <hr />
           <div className="overflow-auto h-full">
-            {dashboardMetrics?.productosPopulares.map((p) => (
+            {metricos?.productosPopulares.map((p) => (
               <div
                 key={p.productoId}
                 className="flex items-center justify-between gap-3 px-5 py-7 border-b"

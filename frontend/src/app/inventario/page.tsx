@@ -5,7 +5,7 @@ import Encabezado from "@/app/(componentes)/Encabezado";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import CargadorPuntos from "../(componentes)/CargadorPuntos";
 
-const columns: GridColDef[] = [
+const columnas: GridColDef[] = [
   { field: "productoId", headerName: "ID", width: 90 },
   { field: "nombre", headerName: "Nombre del Producto", width: 200 },
   {
@@ -55,8 +55,8 @@ const Inventario = () => {
       <Encabezado nombre="Inventario" />
       <DataGrid
         rows={productos}
-        columns={columns}
-        getRowId={(row) => row.productId}
+        columns={columnas}
+        getRowId={(row) => row.productoId}
         checkboxSelection
         className="bg-white shadow rounded-lg border border-gray-200 mt-5 !text-gray-700"
       />

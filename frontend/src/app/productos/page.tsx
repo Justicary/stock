@@ -67,18 +67,18 @@ const Productos = () => {
       <div className="flex justify-between items-center mb-6">
         <Encabezado nombre="Productos" />
         <button
-          className="flex items-center bg-blue-500 hover:bg-blue-700 text-gray-200 font-bold py-2 px-4 rounded"
+          className="flex items-center bg-yellow-500 hover:bg-yellow-800 text-gray-200 font-bold py-2 px-4 rounded"
           onClick={() => setModalAbierto(true)}
         >
-          <PlusCircleIcon className="w-5 h-5 mr-2 !text-gray-200" /> Create
-          Product
+          <PlusCircleIcon className="w-5 h-5 mr-2 !text-gray-200" /> Crear
+          Producto
         </button>
       </div>
 
       {/* BODY LISTA PRODUCTOS */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg-grid-cols-3 gap-10 justify-between">
         {isLoading ? (
-          <div>Loading...</div>
+          <CargadorPuntos />
         ) : (
           productos?.map((p) => (
             <div

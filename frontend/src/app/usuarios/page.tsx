@@ -5,10 +5,10 @@ import Encabezado from "@/app/(componentes)/Encabezado";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import CargadorSpinner from "../(componentes)/CargadorSpinner";
 
-const columns: GridColDef[] = [
-  { field: "userId", headerName: "ID", width: 90 },
-  { field: "name", headerName: "Name", width: 200 },
-  { field: "email", headerName: "Email", width: 200 },
+const columnas: GridColDef[] = [
+  { field: "usuarioId", headerName: "ID", width: 275 },
+  { field: "nombre", headerName: "Nombre", width: 200 },
+  { field: "email", headerName: "Email", width: 275 },
 ];
 
 const Users = () => {
@@ -36,8 +36,8 @@ const Users = () => {
       <Encabezado nombre="Usuarios" />
       <DataGrid
         rows={usuarios}
-        columns={columns}
-        getRowId={(row) => row.userId}
+        columns={columnas}
+        getRowId={(row) => row.usuarioId}
         checkboxSelection
         className="bg-white shadow rounded-lg border border-gray-200 mt-5 !text-gray-700"
       />

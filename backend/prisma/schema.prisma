@@ -1,0 +1,92 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Usuarios {
+  usuarioId String  @id
+  nombre    String
+  email     String
+}
+
+model Productos {
+  productoId    String  @id
+  nombre        String
+  precio        Float
+  calificacion  Float?
+  existencias   Int
+  // 👇🏻 Foreign keys Relations - Declaración de
+  Ventas        Ventas[]
+  Compras       Compras[]
+}
+
+model Ventas {
+  ventaId        String  @id
+  productoId     String
+  timestamp      DateTime
+  cantidad       Int
+  precioUnitario Float
+  montoTotal     Float
+  // 👇🏻 Foreign keys reference - Declaración de
+  producto       Productos @relation(fields: [productoId], references: [productoId])
+}
+
+model Compras {
+  compraId      String  @id
+  productoId    String
+  timestamp     DateTime
+  cantidad      Int
+  costoUnitario Float
+  costoTotal    Float
+  // 👇🏻 Foreign keys reference - Declaración de
+  producto      Productos @relation(fields: [productoId], references: [productoId])
+}
+
+model Gastos {
+  gastoId   String  @id
+  categoria String
+  monto     Float
+  timestamp DateTime
+}
+
+model ResumenVentas {
+  resumenVentaId  String  @id
+  valorTotal       Float
+  porcentajeCambio Float?
+  fecha            DateTime
+}
+
+model ResumenCompras {
+  resumenCompraId  String  @id
+  totalComprado     Float
+  porcentajeCambio  Float?
+  fecha             DateTime
+}
+
+model ResumenGastos {
+  resumenGastoId    String  @id
+  gastosTotales     Float
+  fecha              DateTime
+  // 👇🏻 Foreign key Relation - Declaración de
+  GastoPorCategoria GastoPorCategoria[]
+}
+
+model GastoPorCategoria {
+  gastoPorCategoriaId String  @id
+  resumenGastoId      String
+  categoria           String
+  monto               BigInt
+  fecha               DateTime
+  // 👇🏻 Foreign keys reference - Declaración de
+  resumenGasto        ResumenGastos @relation(fields: [resumenGastoId], references: [resumenGastoId])
+}

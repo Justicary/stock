@@ -42,7 +42,7 @@ export interface IResumenGastoPorCategoria {
   fecha: string;
 }
 
-export interface IDashboardMetrics {
+export interface IMetricosDashboard {
   productosPopulares: IProducto[];
   resumenVentas: IResumenVenta[];
   resumenCompras: IResumenCompra[];
@@ -61,11 +61,11 @@ export interface IUsuario {
 export const api = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL }),
   reducerPath: "api",
-  tagTypes: ["DashboardMetrics", "Productos", "Usuarios", "Gastos"],
+  tagTypes: ["MetricosDashboard", "Productos", "Usuarios", "Gastos"],
   endpoints: (build) => ({
-    getDashboardMetrics: build.query<IDashboardMetrics, void>({
+    getMetricosDashboard: build.query<IMetricosDashboard, void>({
       query: () => "/dashboard",
-      providesTags: ["DashboardMetrics"],
+      providesTags: ["MetricosDashboard"],
     }),
     getProductos: build.query<IProducto[], string | void>({
       query: (search) => ({
@@ -95,7 +95,7 @@ export const api = createApi({
 
 // Deconstrucción de los endpoints generados por createApi.
 export const {
-  useGetDashboardMetricsQuery,
+  useGetMetricosDashboardQuery,
   useGetProductosQuery,
   useCrearProductoMutation,
   useGetUsuariosQuery,

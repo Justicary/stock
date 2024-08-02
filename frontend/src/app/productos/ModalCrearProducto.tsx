@@ -33,7 +33,7 @@ const ModalCrearProducto = ({
     setDatosFormulario({
       ...datosFormulario,
       [name]:
-        name === "price" || name === "stockQuantity" || name === "rating"
+        name === "precio" || name === "existencias" || name === "calificacion"
           ? parseFloat(value)
           : value,
     });
@@ -62,8 +62,8 @@ const ModalCrearProducto = ({
           </label>
           <input
             type="text"
-            name="name"
-            placeholder="Name"
+            name="nombre"
+            placeholder="Nombre"
             onChange={controlarCambios}
             value={datosFormulario.nombre}
             className={inputCssStyles}
@@ -76,8 +76,8 @@ const ModalCrearProducto = ({
           </label>
           <input
             type="number"
-            name="price"
-            placeholder="Price"
+            name="precio"
+            placeholder="Precio"
             onChange={controlarCambios}
             value={datosFormulario.precio}
             className={inputCssStyles}
@@ -90,8 +90,8 @@ const ModalCrearProducto = ({
           </label>
           <input
             type="number"
-            name="stockQuantity"
-            placeholder="Stock Quantity"
+            name="existencias"
+            placeholder="Existencias"
             onChange={controlarCambios}
             value={datosFormulario.existencias}
             className={inputCssStyles}
@@ -104,8 +104,8 @@ const ModalCrearProducto = ({
           </label>
           <input
             type="number"
-            name="rating"
-            placeholder="Rating"
+            name="calificacion"
+            placeholder="Calificacion"
             onChange={controlarCambios}
             value={datosFormulario.calificacion}
             className={inputCssStyles}

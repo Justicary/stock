@@ -1,43 +1,45 @@
 import {
   IResumenGastoPorCategoria,
-  useGetDashboardMetricsQuery,
+  useGetMetricosDashboardQuery,
 } from "@/estado/api";
 import { TrendingUp } from "lucide-react";
 import CargadorSpinner from "../(componentes)/CargadorSpinner";
 import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
 
 type TSumasGastos = {
-  [category: string]: number;
+  [categoria: string]: number;
 };
 
 const colores = ["#00C49F", "#0088FE", "#FFBB28"];
 
 const TarjetaResumenGastos = () => {
-  const { data: dashboardMetrics, isLoading } = useGetDashboardMetricsQuery();
+  const { data: metricosDashboard, isLoading } = useGetMetricosDashboardQuery();
 
-  const resumenGastos = dashboardMetrics?.resumenGastos[0];
+  const resumenGastos = metricosDashboard?.resumenGastos[0];
 
   const resumenGastosPorCategoria =
-    dashboardMetrics?.resumenGastosPorCategoria || [];
+    metricosDashboard?.resumenGastosPorCategoria || [];
 
   const sumasGastos = resumenGastosPorCategoria.reduce(
     (acc: TSumasGastos, ele: IResumenGastoPorCategoria) => {
-      const category = "Gastos de " + ele.categoria;
-      const amount = parseInt(ele.monto, 10);
-      if (!acc[category]) acc[category] = 0;
-      acc[category] += amount;
+      const categoria = "Gastos de " + ele.categoria;
+      const monto = parseInt(ele.monto, 10);
+      if (!acc[categoria]) acc[categoria] = 0;
+      acc[categoria] += monto;
       return acc;
     },
     {}
   );
 
-  const categoriasGasto = Object.entries(sumasGastos).map(([name, value]) => ({
-    name,
-    value,
-  }));
+  const categoriasGasto = Object.entries(sumasGastos).map(
+    ([nombre, valor]) => ({
+      nombre,
+      valor,
+    })
+  );
 
   const gastosTotales = categoriasGasto.reduce(
-    (acc, category: { value: number }) => acc + category.value,
+    (acc, categoria: { valor: number }) => acc + categoria.valor,
     0
   );
   const gastosTotalesFormateados = gastosTotales.toFixed(2);
@@ -66,15 +68,15 @@ const TarjetaResumenGastos = () => {
                     innerRadius={50}
                     outerRadius={60}
                     fill="#8884d8"
-                    dataKey="value"
-                    nameKey="name"
+                    dataKey="valor"
+                    nameKey="nombre"
                     cx="50%"
                     cy="50%"
                   >
-                    {categoriasGasto.map((entry, index) => (
+                    {categoriasGasto.map((entry, i) => (
                       <Cell
-                        key={`cell-${index}`}
-                        fill={colores[index % colores.length]}
+                        key={`cell-${i}`}
+                        fill={colores[i % colores.length]}
                       />
                     ))}
                   </Pie>
@@ -88,16 +90,13 @@ const TarjetaResumenGastos = () => {
             </div>
             {/* LABELS */}
             <ul className="flex flex-col justify-around items-center xl:items-start py-5 gap-3">
-              {categoriasGasto.map((entry, index) => (
-                <li
-                  key={`legend-${index}`}
-                  className="flex items-center text-xs"
-                >
+              {categoriasGasto.map((ele, i) => (
+                <li key={`legend-${i}`} className="flex items-center text-xs">
                   <span
                     className="mr-2 w-3 h-3 rounded-full"
-                    style={{ backgroundColor: colores[index % colores.length] }}
+                    style={{ backgroundColor: colores[i % colores.length] }}
                   ></span>
-                  {entry.name}
+                  {ele.nombre}
                 </li>
               ))}
             </ul>
@@ -109,7 +108,7 @@ const TarjetaResumenGastos = () => {
               <div className="mt-3 flex justify-between items-center px-7 mb-4">
                 <div className="pt-2">
                   <p className="text-sm">
-                    Average:{" "}
+                    Promedio:{" "}
                     <span className="font-semibold">
                       ${resumenGastos.gastosTotales.toFixed(2)}
                     </span>

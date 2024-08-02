@@ -1,4 +1,4 @@
-import { useGetDashboardMetricsQuery } from "@/estado/api";
+import { useGetMetricosDashboardQuery } from "@/estado/api";
 import { TrendingDown, TrendingUp } from "lucide-react";
 import numeral from "numeral";
 import React from "react";
@@ -13,7 +13,7 @@ import {
 import CargadorSpinner from "../(componentes)/CargadorSpinner";
 
 const CardPurchaseSummary = () => {
-  const { data, isLoading } = useGetDashboardMetricsQuery();
+  const { data, isLoading } = useGetMetricosDashboardQuery();
   const datosCompras = data?.resumenCompras || [];
 
   const ultimoPuntoDatos = datosCompras[datosCompras.length - 1] || null;
