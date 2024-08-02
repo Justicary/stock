@@ -57,6 +57,7 @@ export interface IUsuario {
 }
 
 // Se crea el servicio a utilizar en la aplicación.
+// Mas información en: https://redux-toolkit.js.org/rtk-query/api/createApi
 export const api = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL }),
   reducerPath: "api",

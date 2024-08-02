@@ -20,7 +20,14 @@ const Users = () => {
 
   if (isError || !usuarios) {
     return (
-      <div className="text-center text-red-500 py-4">Failed to fetch users</div>
+      <div className="row-span-3 xl:row-span-6 bg-white shadow-md rounded-2xl flex flex-col justify-between">
+        <div className="text-center text-red-500">
+          <h2 className="text-lg font-semibold mb-2 px-7 pt-5">Atención:</h2>
+          ¡Falló la obtención de usuarios de la API!
+          <br />
+          Asegúrate de que el backend este funcionando
+        </div>
+      </div>
     );
   }
 
