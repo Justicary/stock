@@ -36,7 +36,8 @@ export interface IResumenGasto {
 }
 
 export interface IResumenGastoPorCategoria {
-  resumenGastoPorCategoriaId: string;
+  gastoPorCategoriaId: string;
+  resumenGastoId: string;
   categoria: string;
   monto: string;
   fecha: string;

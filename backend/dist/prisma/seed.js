@@ -57,7 +57,7 @@ function main() {
             const nombreModelo = path_1.default.basename(archivo, path_1.default.extname(archivo));
             const modelo = prisma[nombreModelo];
             if (!modelo) {
-                console.error(`Ningun modelo de Prisma coincide con el archivo: ${archivo}.`);
+                console.error(`El modelo de Prisma NO coincide con el archivo: ${archivo}.`);
                 continue;
             }
             for (const datos of datosJson) {
@@ -65,11 +65,15 @@ function main() {
                     data: datos,
                 });
             }
-            console.log(`Datos generados en ${nombreModelo} con los contenidos de ${archivo}.`);
+            console.log(`✔ Datos sembrados en ${nombreModelo} con los contenidos de ${archivo}.`);
         }
     });
 }
-// Ejecuta el script
+// IMPORTANTE: Este script se ejecuta desde el package.json al escribir:
+// pnpm seed ⏎
+// El cual sube los datos muestra definidos en archivosOrdenados al modelo previamente definido y creado en
+// prisma/schema.prisma
+// OJO: En caso de errores, se podrán ver en la consola y seguramente obedecen a inconsistencias entre el modelo y los datos.
 main()
     .catch((e) => {
     console.error(e);

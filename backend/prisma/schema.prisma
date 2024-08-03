@@ -1,8 +1,15 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+// Este es el archivo esquema de Prisma,
+// Más información en los docs: https://pris.ly/d/prisma-schema
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+// ¿Quieres acelerar tus consultas(queries)? o ¿quieres escalar facilmente a serverless?
+// Prueba Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+// NOTA: IMPORTANTE Comandos que ejecutan para inicializar el schema.prisma en el proyecto:
+//       1) npx prisma generate
+//          Genera automáticamente el código necesario para realizar consultas, actualizar datos y realizar otras operaciones en la base de datos. 
+//       2) npx prisma migrate dev --name ini
+//          Genera y ejecuta el código SQL para sincronizar la base de datos. Asegurando que la estructura creada en el servidor local coincida con la definida en este esquema.
+//          La migración generada se almacena en el directorio "prisma/migrations/xxxxxxxxxxxxxx_ini/migration.sql".
 
 generator client {
   provider = "prisma-client-js"
@@ -12,6 +19,9 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+// Ejemplo visual de este diagrama del modelo de datos:
+// https://drawsql.app/teams/team-3023/diagrams/56-inventorymanagement
 
 model Usuarios {
   usuarioId String  @id
@@ -25,7 +35,7 @@ model Productos {
   precio        Float
   calificacion  Float?
   existencias   Int
-  // 👇🏻 Foreign keys Relations - Declaración de
+  // 👇🏻 1 to Many Foreign keys Relations - Declaración de
   Ventas        Ventas[]
   Compras       Compras[]
 }
@@ -76,8 +86,8 @@ model ResumenCompras {
 model ResumenGastos {
   resumenGastoId    String  @id
   gastosTotales     Float
-  fecha              DateTime
-  // 👇🏻 Foreign key Relation - Declaración de
+  fecha             DateTime
+  // 👇🏻 1 to Many Foreign key Relation - Declaración de
   GastoPorCategoria GastoPorCategoria[]
 }
 

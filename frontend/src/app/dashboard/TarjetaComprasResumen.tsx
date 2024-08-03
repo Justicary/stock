@@ -68,15 +68,15 @@ const CardPurchaseSummary = () => {
                 data={datosCompras}
                 margin={{ top: 0, right: 0, left: -50, bottom: 45 }}
               >
-                <XAxis dataKey="date" tick={false} axisLine={false} />
+                <XAxis dataKey="fecha" tick={false} axisLine={false} />
                 <YAxis tickLine={false} tick={false} axisLine={false} />
                 <Tooltip
                   formatter={(value: number) => [
-                    `$${value.toLocaleString("en")}`,
+                    `$${value.toLocaleString("es")}`,
                   ]}
                   labelFormatter={(label) => {
                     const date = new Date(label);
-                    return date.toLocaleDateString("en-US", {
+                    return date.toLocaleDateString("es-MX", {
                       year: "numeric",
                       month: "long",
                       day: "numeric",
@@ -85,7 +85,7 @@ const CardPurchaseSummary = () => {
                 />
                 <Area
                   type="linear"
-                  dataKey="totalPurchased"
+                  dataKey="totalComprado"
                   stroke="#8884d8"
                   fill="#8884d8"
                   dot={true}

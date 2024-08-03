@@ -16,10 +16,12 @@ import {
   Tooltip,
 } from "recharts";
 
+// Este tipo define los elementos que consumen los componentes Legend, Pie & Tooltip de recharts.
+// Es por eso que se definen en ingles.
 type TDatosAgregadosEle = {
-  nombre: string;
+  name: string;
   color?: string;
-  monto: number;
+  amount: number;
 };
 
 type TDatosAgregados = {
@@ -33,12 +35,15 @@ const Gastos = () => {
   const [fechaFinal, setFechaFinal] = useState("");
 
   const {
-    data: datosGastos,
+    data: datosGastosPorcategoria,
     isLoading,
     isError,
   } = useGetGastosPorCategoriaQuery();
 
-  const gastos = useMemo(() => datosGastos ?? [], [datosGastos]);
+  const gastos = useMemo(
+    () => datosGastosPorcategoria ?? [],
+    [datosGastosPorcategoria]
+  );
 
   const convertirFecha = (stringFecha: string) => {
     const fecha = new Date(stringFecha);
@@ -48,28 +53,27 @@ const Gastos = () => {
   const datosAgregados: TDatosAgregadosEle[] = useMemo(() => {
     const filtrados: TDatosAgregados = gastos
       .filter((datos: IResumenGastoPorCategoria) => {
-        const matchesCategory =
-          categoriaSeleccionada === "All" ||
+        const coincidenCategorias =
+          categoriaSeleccionada === "Todas" ||
           datos.categoria === categoriaSeleccionada;
-        const dataDate = convertirFecha(datos.fecha);
-        const matchesDate =
+        const fechaDatos = convertirFecha(datos.fecha);
+        const coincidenFechas =
           !fechaInicial ||
           !fechaFinal ||
-          (dataDate >= fechaInicial && dataDate <= fechaFinal);
-        return matchesCategory && matchesDate;
+          (fechaDatos >= fechaInicial && fechaDatos <= fechaFinal);
+        return coincidenCategorias && coincidenFechas;
       })
       .reduce((acc: TDatosAgregados, datos: IResumenGastoPorCategoria) => {
-        const _monto = parseInt(datos.monto);
+        const monto = parseInt(datos.monto);
         if (!acc[datos.categoria]) {
-          acc[datos.categoria] = { nombre: datos.categoria, monto: 0 };
+          acc[datos.categoria] = { name: datos.categoria, amount: 0 };
           acc[datos.categoria].color = `#${Math.floor(
             Math.random() * 16777215
           ).toString(16)}`;
-          acc[datos.categoria].monto += _monto;
         }
+        acc[datos.categoria].amount += monto;
         return acc;
       }, {});
-
     return Object.values(filtrados);
   }, [gastos, categoriaSeleccionada, fechaInicial, fechaFinal]);
 
@@ -83,7 +87,7 @@ const Gastos = () => {
     return <CargadorSpinner />;
   }
 
-  if (isError || !datosGastos) {
+  if (isError || !datosGastosPorcategoria) {
     return (
       <div className="row-span-3 xl:row-span-6 bg-white shadow-md rounded-2xl flex flex-col justify-between">
         <div className="text-center text-red-500">
@@ -110,22 +114,22 @@ const Gastos = () => {
       <div className="flex flex-col md:flex-row justify-between gap-4">
         <div className="w-full md:w-1/3 bg-white shadow rounded-lg p-6">
           <h3 className="text-lg font-semibold mb-4">
-            Filtrar por Categoría y Fecha
+            Filtra por categoría y/o fecha
           </h3>
           <div className="space-y-4">
             {/* CATEGORIA*/}
             <div>
-              <label htmlFor="category" className={classNames.label}>
+              <label htmlFor="categoria" className={classNames.label}>
                 Categoría
               </label>
               <select
-                id="category"
-                name="category"
+                id="categoria"
+                name="categoria"
                 className={classNames.selectInput}
                 defaultValue="All"
                 onChange={(e) => setCategoriaSeleccionada(e.target.value)}
               >
-                <option>All</option>
+                <option>Todas</option>
                 <option>Office</option>
                 <option>Professional</option>
                 <option>Salaries</option>
@@ -133,26 +137,26 @@ const Gastos = () => {
             </div>
             {/* FECHA INICIAL */}
             <div>
-              <label htmlFor="start-date" className={classNames.label}>
+              <label htmlFor="fecha-inicial" className={classNames.label}>
                 Fecha Inicial
               </label>
               <input
                 type="date"
-                id="start-date"
-                name="start-date"
+                id="fecha-inicial"
+                name="fecha-inicial"
                 className={classNames.selectInput}
                 onChange={(e) => setFechaInicial(e.target.value)}
               />
             </div>
             {/* FECHA FINAL */}
             <div>
-              <label htmlFor="end-date" className={classNames.label}>
+              <label htmlFor="fecha-final" className={classNames.label}>
                 Fecha Final
               </label>
               <input
                 type="date"
-                id="end-date"
-                name="end-date"
+                id="fecha-final"
+                name="fecha-final"
                 className={classNames.selectInput}
                 onChange={(e) => setFechaFinal(e.target.value)}
               />

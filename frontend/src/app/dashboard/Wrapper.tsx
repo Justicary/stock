@@ -25,7 +25,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     >
       <BarraIzquierda />
       <main
-        className={`flex flex-col w-full h-full py-7 px-9 bg-gray-50 ${
+        className={`flex flex-col w-full h-full py-8 px-9 bg-gray-50 ${
           barraColapsada ? "md:pl-24" : "md:pl-72"
         }`}
       >

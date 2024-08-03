@@ -49,7 +49,7 @@ async function main() {
 
     if (!modelo) {
       console.error(
-        `Ningun modelo de Prisma coincide con el archivo: ${archivo}.`
+        `El modelo de Prisma NO coincide con el archivo: ${archivo}.`
       );
       continue;
     }
@@ -61,12 +61,16 @@ async function main() {
     }
 
     console.log(
-      `Datos generados en ${nombreModelo} con los contenidos de ${archivo}.`
+      `✔ Datos sembrados en ${nombreModelo} con los contenidos de ${archivo}.`
     );
   }
 }
 
-// Ejecuta el script
+// IMPORTANTE: Este script se ejecuta desde el package.json al escribir:
+// pnpm seed ⏎
+// El cual sube los datos muestra definidos en archivosOrdenados al modelo previamente definido y creado en
+// prisma/schema.prisma
+// OJO: En caso de errores, se podrán ver en la consola y seguramente obedecen a inconsistencias entre el modelo y los datos.
 main()
   .catch((e) => {
     console.error(e);
