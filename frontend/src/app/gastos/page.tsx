@@ -84,7 +84,11 @@ const Gastos = () => {
   };
 
   if (isLoading) {
-    return <CargadorSpinner />;
+    return (
+      <div className="h-[80vh]">
+        <CargadorSpinner />
+      </div>
+    );
   }
 
   if (isError || !datosGastosPorcategoria) {

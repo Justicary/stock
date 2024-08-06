@@ -1,0 +1,103 @@
+{
+  "1": {
+    "cargando": "Cargando..."
+  },
+  "Approach": {
+    "title0": "Mi metodología para ",
+    "title1": "nuevos proyectos",
+    "cards": {
+      "1": {
+        "title": "Planeación & Estrategía",
+        "desc": "Colaboración para trazar los objetivos del sitio web, el público objetivo y funcionalidades clave. Discutiremos cosas como la estructura del sitio, requisitos de navegación y contenido.",
+        "order": "Fase 1"
+      },
+      "2": {
+        "title": "Actualización de desarrollo & progreso",
+        "desc": "Una vez que estamos de acuerdo en el plan, le doy \"play\" a mi lista de reproducción y me sumerjo en codificación. Desde bocetos iniciales hasta código pulido y mantengo a mis clientes actualizados en cada paso del camino.",
+        "order": "Fase 2"
+      },
+      "3": {
+        "title": "Desarrollo e implementación",
+        "desc": "¡Aquí es donde ocurre la magia! Basado en el diseño aprobado, traduciré todo a código funcional y construiré tu sitio web desde el principio.",
+        "order": "Fase 3"
+      }
+    }
+  },
+  "Hero": {
+    "top": "Creando Mágia Dinámica en la Web",
+    "title": "Transformando Conceptos en Experiencias Memorables al Usuario",
+    "desc": "Hola, soy Víctor Mancera, un apasionado programador \"fullstack\" con más de 10 años de experiencia en el desarrollo de aplicaciones con inteligencia artificial para plataformas web y móviles.",
+    "button": "Mira mi perfil"
+  },
+  "Grid": {
+    "title": {
+      "1": "Prioritizo la colaboración con el cliente, fomentando la comunicación abierta",
+      "2": "Soy muy flexible con las diferentes zonas horarias",
+      "3": "Mi \"tech stack\"",
+      "4": "Entusiasta de la tecnología con pasión por la programación",
+      "5": "Actualmente estoy desarrollando un BOT con Inteligencia Artificial de lenguaje natural. Para probarlo, \"haz click\" en la liga.",
+      "6": "¿Quieres iniciar un proyecto conmigo?"
+    },
+    "desc": {
+      "1": "",
+      "2": "",
+      "3": "Constantemente mejorando...",
+      "4": "",
+      "5": "IA para todos...",
+      "6": ""
+    }
+  },
+  "Projects": {
+    "title0": "Una selección de mis",
+    "title1": "proyectos recientes",
+    "button0": "Ir al sitio",
+    "items": {
+      "1": {
+        "title": "RC Forums - eventos y redes sociales.",
+        "desc": "Aplicación movil que utiliza react native(Expo), implementa una red social para eventos y foros."
+      },
+      "2": {
+        "title": "CEASPUE - Virtual Card & Dashboard",
+        "desc": "PWA desarrollada para la “Comisión Estatal de Agua y Saneamiento de Puebla”(CEASPUE). Además de servir como tarjeta de presentacion dinámica personalizada, tiene como objetivo mostrar la información relevante sobre contratos de infraestructura y su estado en un panel de control, tanto para los ayuntamientos como para las empresas contratadas. Utilizando APIs, bases de datos en la nube y hojas de cálculo de Google."
+      },
+      "3": {
+        "title": "BotIA SaaS - Aplicación Admin|Cliente",
+        "desc": "Una aplicación SaaS con características de inteligencia artificial, sistema de suscripciones y créditos utilizando la pila de tecnología más actualizada."
+      },
+      "4": {
+        "title": "Banka - Aplicación Web",
+        "desc": "Administrador de cuentas bancarias donde puedes revisar tus saldos y realizar transferencias entre tus cuentas(USA)."
+      }
+    }
+  },
+  "Footer": {
+    "title0": "¿Estás listo para llevar ",
+    "title1": "tu",
+    "title2": "presencia digital al siguiente nivel?",
+    "desc": "Contáctame hoy mismo y platiquemos como puedo ayudarte a lograr tus objetivos ó alcanzar tus metas.",
+    "sendEmail": "Envíame un email",
+    "copyright": "Derechos Reservados ©2024 Victor Mancera."
+  },
+  "Work": {
+    "title0": "Mi",
+    "title1": "experiencia laboral",
+    "items": {
+      "1": {
+        "title": "Ingeniero Frontend - Innotecnia",
+        "desc": "Asistí en el desarrollo de plataformas web basadas en Javascript, React.js & Redux para mejorar la interactividad."
+      },
+      "2": {
+        "title": "Desarrollador de aplicaciones móviles - Point",
+        "desc": "Desarrollé aplicaciones móviles para plataformas iOS & Android utilizando React Native & Expo."
+      },
+      "3": {
+        "title": "Desarrollo de aplicaciones CRM para plataformas web - Point",
+        "desc": "Participé en el desarrollo de una plataforma web SAAS utilizando Node.js, React.js, Material.ui, Redux, Firebase, Typescript."
+      },
+      "4": {
+        "title": "Desarrollador \"Fullstack\" - BotIA",
+        "desc": "Desarrollo y mantengo un BOT para redes sociales para productos META: WhatsApp, Instagram y Facebook. El cual implementa Inteligencia Artificial y Procesamiento del Lenguaje Natural."
+      }
+    }
+  }
+}

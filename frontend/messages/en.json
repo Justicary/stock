@@ -1,0 +1,103 @@
+{
+  "1": {
+    "cargando": "Loading..."
+  },
+  "Approach": {
+    "title0": "My approach for ",
+    "title1": "new projects",
+    "cards": {
+      "1": {
+        "title": "Planning & Strategy",
+        "desc": "Collaboration to outline the goals of the website, the target audience and key functionalities. We'll discuss things like the site's structure, navigation requirements and content.",
+        "order": "Phase 1"
+      },
+      "2": {
+        "title": "Development & Progress Update",
+        "desc": "Once we agree on the plan, I'll hit the \"play\" button and immerse myself in coding. From initial sketches to polished code and I keep my clients updated at every step of the way.",
+        "order": "Phase 2"
+      },
+      "3": {
+        "title": "Development & Implementation",
+        "desc": "Here's where the magic happens! Based on the approved design, I'll translate everything into functional code and build your website from the ground up.",
+        "order": "Phase 3"
+      }
+    }
+  },
+  "Hero": {
+    "top": "Creating Dynamic Magic on the Web",
+    "title": "Transforming Concepts into Memorable User Experiences",
+    "desc": "Hello, I'm Victor Mancera, a passionate fullstack programmer with over 10 years of experience in developing applications for web and mobile platforms. Now with artificial intelligence.",
+    "button": "Go to mi profile"
+  },
+  "Grid": {
+    "title": {
+      "1": "Prioritize collaboration with the customer, fostering open communication",
+      "2": "I am flexible with different time zones",
+      "3": "My \"Tech Stack\"",
+      "4": "I am passionate about technology with a passion for programming",
+      "5": "Currently, I am developing a Social Networks BOT with Artificial Intelligence & Natural Language Processing. Scan the QR code to test it.",
+      "6": "Do you want to start a project with me?"
+    },
+    "desc": {
+      "1": "",
+      "2": "",
+      "3": "Continuously improving...",
+      "4": "",
+      "5": "AI for everyone...",
+      "6": ""
+    }
+  },
+  "Projects": {
+    "title0": "A selection of my",
+    "title1": "recent projects",
+    "button0": "Go to the site",
+    "items": {
+      "1": {
+        "title": "RC Forums - Expo Mobile Application",
+        "desc": "Using native technologies we intelligently take advantage of the Internet, so that micro and small businesses are always publicized and increase their sales by offering their customers and their community an unsurpassed added value."
+      },
+      "2": {
+        "title": "CEASPUE - Virtual Card & Dashboard",
+        "desc": "Progressive Web App developed for the “Comisión Estatal de Agua y Saneamiento de Puebla”(CEASPUE) In addition to serving as a business card, it aims to present the relevant information on infrastructure contracts and their status in a control panel, both for municipalities and for contracted companies. Using API's, cloud databases, and google datasheets."
+      },
+      "3": {
+        "title": "BotIA SaaS - Admin Client Application",
+        "desc": "A Software-as-a-Service app with AI and LLM features subscription payments and credits system using the latest tech stack."
+      },
+      "4": {
+        "title": "Banka - Web Application",
+        "desc": "Bank account manager where you can check your balances and make transfers between your accounts."
+      }
+    }
+  },
+  "Footer": {
+    "title0": "Are ",
+    "title1": "you",
+    "title2": "ready to lift your digital presence to the next level?",
+    "desc": "Contact me today and let's chat about how I can help you achieve your goals or reach your targets.",
+    "sendEmail": "Send me an email",
+    "copyright": "Copyright ©2024 Victor Mancera."
+  },
+  "Work": {
+    "title0": "Mi",
+    "title1": "experiencia laboral",
+    "items": {
+      "1": {
+        "title": "Frontend Engineer - Innotecnia",
+        "desc": "Assisted in the development of a web-based platforms using Javascript, React.js & Redux for enhancing interactivity."
+      },
+      "2": {
+        "title": "Mobile App Dev - Point",
+        "desc": "Developed mobile app for both iOS & Android platforms using React Native & Expo."
+      },
+      "3": {
+        "title": "CRM Bot App Dev - Point",
+        "desc": "Participated in the development of a web-based SAAS platform using Node.js, React.js., Material.ui, Redux, Firebase, Typescript."
+      },
+      "4": {
+        "title": "Lead Fullstack Developer - BotIA",
+        "desc": "Developed and maintained a social media BOT for META products: WhatsApp, Instagram and Facebook. Implements advanced AI and Natural Language Processing."
+      }
+    }
+  }
+}

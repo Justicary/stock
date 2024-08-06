@@ -67,7 +67,7 @@ const Productos = () => {
       <div className="flex justify-between items-center mb-6">
         <Encabezado nombre="Productos" />
         <button
-          className="flex items-center bg-yellow-500 hover:bg-yellow-800 text-gray-200 font-bold py-2 px-4 rounded"
+          className="flex items-center bg-teal-900 hover:bg-teal-400 text-teal-100 font-bold py-2 px-4 rounded"
           onClick={() => setModalAbierto(true)}
         >
           <PlusCircleIcon className="w-5 h-5 mr-2 !text-gray-200" /> Crear
@@ -77,40 +77,36 @@ const Productos = () => {
 
       {/* BODY LISTA PRODUCTOS */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg-grid-cols-3 gap-10 justify-between">
-        {isLoading ? (
-          <CargadorPuntos />
-        ) : (
-          productos?.map((p) => (
-            <div
-              key={p.productoId}
-              className="border shadow rounded-md p-4 max-w-full w-full mx-auto"
-            >
-              <div className="flex flex-col items-center">
-                <Image
-                  src={`https://s3-inventorymanagement.s3.us-east-2.amazonaws.com/product${
-                    Math.floor(Math.random() * 3) + 1
-                  }.png`}
-                  alt={p.nombre}
-                  width={150}
-                  height={150}
-                  className="mb-3 rounded-2xl w-36 h-36"
-                />
-                <h3 className="text-lg text-gray-900 font-semibold">
-                  {p.nombre}
-                </h3>
-                <p className="text-gray-800">${p.precio.toFixed(2)}</p>
-                <div className="text-sm text-gray-600 mt-1">
-                  Existencias: {p.existencias}
-                </div>
-                {p.calificacion && (
-                  <div className="flex items-center mt-2">
-                    <Calificacion valor={p.calificacion} />
-                  </div>
-                )}
+        {productos?.map((p) => (
+          <div
+            key={p.productoId}
+            className="border shadow rounded-md p-4 max-w-full w-full mx-auto"
+          >
+            <div className="flex flex-col items-center">
+              <Image
+                src={`https://s3-inventorymanagement.s3.us-east-2.amazonaws.com/product${
+                  Math.floor(Math.random() * 3) + 1
+                }.png`}
+                alt={p.nombre}
+                width={150}
+                height={150}
+                className="mb-3 rounded-2xl w-36 h-36"
+              />
+              <h3 className="text-lg text-gray-900 font-semibold">
+                {p.nombre}
+              </h3>
+              <p className="text-gray-800">${p.precio.toFixed(2)}</p>
+              <div className="text-sm text-gray-600 mt-1">
+                Existencias: {p.existencias}
               </div>
+              {p.calificacion && (
+                <div className="flex items-center mt-2">
+                  <Calificacion valor={p.calificacion} />
+                </div>
+              )}
             </div>
-          ))
-        )}
+          </div>
+        ))}
       </div>
 
       {/* MODAL */}

@@ -15,6 +15,7 @@ instrucciones que se deben de seguir para ejecutarlas en un servidor local.
 | NEXTJS        | `14.2.4`  | [Página principal](https://nextjs.org/)                |
 | TAILWIND      | `^3.4.1`  | [Página principal](https://tailwindcss.com/)           |
 | MATERIAL UI   | `^5.16.0` | [Página principal](https://mui.com/)                   |
+| SHAD-CN/UI    | `^5.16.0` | [Página principal](https://ui.shadcn.com/)             |
 | EXPRESS       | `^4.19.2` | [Página principal](https://expressjs.com/es/)          |
 | PRISMA        | `^5.16.2` | [Página principal](https://www.prisma.io/)             |
 

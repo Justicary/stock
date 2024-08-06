@@ -1,7 +1,9 @@
+import { useTranslations } from "next-intl";
 const CargadorSpinner = () => {
+  const t = useTranslations();
   return (
     <div
-      aria-label="Cargando..."
+      aria-label={t("1.cargando")}
       role="status"
       className="flex justify-center items-center space-x-2 w-full h-full"
     >
@@ -82,7 +84,9 @@ const CargadorSpinner = () => {
           strokeWidth="24"
         ></line>
       </svg>
-      {/* <span className="text-2xl font-medium text-gray-500">Cargando...</span> */}
+      <span className="text-2xl font-medium text-gray-500">
+        {t("1.cargando")}
+      </span>
     </div>
   );
 };
